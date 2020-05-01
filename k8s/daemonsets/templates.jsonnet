@@ -168,7 +168,7 @@ local Tcpinfo(expName, tcpPort, hostNetwork, anonMode) = [
 local Traceroute(expName, tcpPort, hostNetwork) = [
   {
     name: 'traceroute-caller',
-    image: 'measurementlab/traceroute-caller:sandbox-calluuid',
+    image: 'measurementlab/traceroute-caller:sandbox-ipuuid',
     args: [
       if hostNetwork then
         '-prometheusx.listen-address=127.0.0.1:' + tcpPort
@@ -318,7 +318,7 @@ local Pusher(expName, tcpPort, datatypes, hostNetwork, bucket) = [
 local UUIDAnnotator(expName, tcpPort, hostNetwork) = [
   {
     name: 'uuid-annotator',
-    image: 'measurementlab/uuid-annotator:sandbox-ipservice',
+    image: 'measurementlab/uuid-annotator:v0.4.1',
     args: [
       if hostNetwork then
         '-prometheusx.listen-address=127.0.0.1:' + tcpPort
